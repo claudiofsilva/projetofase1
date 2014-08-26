@@ -1,4 +1,6 @@
-<form class="form-horizontal" role="form" method="post" action="index.php">
+<?php if(!$_POST) { ?>
+
+<form class="form-horizontal" role="form" method="post" action="">
     <div class="form-group">
         <label for="inputEmail4" class="col-sm-2 control-label">Nome</label>
         <div class="col-sm-10">
@@ -30,3 +32,26 @@
         </div>
     </div>
 </form>
+
+<?php } else { ?>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Dados enviados com sucesso, abaixo seguem os dados que você enviou
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Informações Formulario</h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Nome:</strong> <?php echo $_POST['nome']; ?></li>
+            <li class="list-group-item"><strong>Email:</strong>  <?php echo $_POST['email']; ?></li>
+            <li class="list-group-item"><strong>Assunto:</strong> <?php echo $_POST['assunto']; ?></li>
+            <li class="list-group-item"><strong>Mensagem:</strong> <?php echo $_POST['mensagem']; ?></li>
+
+        </ul>
+    </div>
+
+<?php } ?>
